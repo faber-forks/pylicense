@@ -100,8 +100,6 @@ class PyLicense(object):
         time.sleep(1)
         pass
 
-    print(package)
-
     return self._maybe_license_comment(line, license)
 
   def _get_pip_license(self, line):
@@ -145,9 +143,9 @@ class PyLicense(object):
     """
     for line in stream:
       if args.environment:
-        yield self.process_environment_line(line)
+        print(self.process_environment_line(line))
       else:
-        yield self.process_requirements_line(line)
+        print(self.process_requirements_line(line))
 
 
 if __name__ == '__main__':
@@ -164,9 +162,9 @@ if __name__ == '__main__':
     output = [o for o in pylicense.process_stream(stream)]
 
   # must open file to rewrite it
-  if args.stdout:
-    print "\n".join(output)
-  else:
-    with open(args.file, "w") as fh:
-      fh.write("\n".join(output))
+  # if args.stdout:
+  #   print "\n".join(output)
+  # else:
+  #   with open(args.file, "w") as fh:
+  #     fh.write("\n".join(output))
 
