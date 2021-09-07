@@ -100,6 +100,8 @@ class PyLicense(object):
         time.sleep(1)
         pass
 
+    print(package)
+
     return self._maybe_license_comment(line, license)
 
   def _get_pip_license(self, line):
