@@ -1,4 +1,5 @@
 import os
+import time
 import xmlrpclib
 
 
@@ -134,6 +135,7 @@ class PyLicense(object):
     Processes lines from stream
     """
     for line in stream:
+      time.sleep(1)
       if args.environment:
         yield self.process_environment_line(line)
       else:
