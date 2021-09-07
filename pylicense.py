@@ -94,11 +94,11 @@ class PyLicense(object):
     
     license = None
     while license is None:
-    try:
-      license = self._get_license(package, version)
-    except:
-      time.sleep(1)
-      pass
+      try:
+        license = self._get_license(package, version)
+      except:
+        time.sleep(1)
+        pass
 
     return self._maybe_license_comment(line, license)
 
