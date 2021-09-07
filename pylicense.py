@@ -91,7 +91,14 @@ class PyLicense(object):
       return ""
 
     package, version = dep_array[:2]
-    license = self._get_license(package, version)
+    
+    license = None
+    while license is None:
+    try:
+      license = self._get_license(package, version)
+    except:
+      time.sleep(1)
+      pass
 
     return self._maybe_license_comment(line, license)
 
@@ -135,7 +142,6 @@ class PyLicense(object):
     Processes lines from stream
     """
     for line in stream:
-      time.sleep(2)
       if args.environment:
         yield self.process_environment_line(line)
       else:
