@@ -135,7 +135,7 @@ class PyLicense(object):
     Processes lines from stream
     """
     for line in stream:
-      time.sleep(1)
+      time.sleep(2)
       if args.environment:
         yield self.process_environment_line(line)
       else:
